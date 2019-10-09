@@ -1,0 +1,84 @@
+/* VARIABLES */
+$max-mobile-break: "only screen and (max-width: 600px)";
+$ui-theme-color: #191c1f;
+
+aside {
+    width: 200px;
+    height: calc(100% - 85px);
+    background: $ui-theme-color;
+    position: fixed;
+    top: 0;
+    margin-top: 85px;
+    display: flex;
+    flex-direction: column;
+
+
+    @media #{$max-mobile-break} {
+        width: 50px;
+    }
+
+    ul.menu {
+
+        margin-top: 20px;
+
+        li {
+            text-align: left;
+
+            a {
+                position: relative;
+                color: #d2d2d2;
+                padding: 15px 10px;
+                font-size: 15px;
+                font-weight: bold;
+                display: block;
+                text-decoration: none;
+                text-indent: 40px;
+                transition: .2s background-color;
+
+                &.active-link,
+                &:hover  {
+                    background-color: #222a31;
+                    color: #16a085;
+                }
+
+                @media #{$max-mobile-break} {
+                    text-indent: 0px;
+                    text-align: center;
+                }
+
+                & i {
+                    position: absolute;
+                    left: -16px;
+                    top: 18px;
+
+                    @media #{$max-mobile-break} {
+                        position: relative;
+                        left: 0;
+                        top: 0;
+                    }
+                }
+
+                & .link-text {
+                    @media #{$max-mobile-break} {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    .credit {
+        margin-top: auto;
+        text-align: center;
+        padding: 10px;
+        font-size: 11px;
+        font-weight: bold;
+        color: #FFFFFF;
+        background-color: #16a085;
+        text-transform: uppercase;
+
+        @media #{$max-mobile-break} {
+            display: none;
+        }
+    }
+}

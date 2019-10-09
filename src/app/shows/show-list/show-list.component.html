@@ -1,0 +1,14 @@
+<div id="show-list">
+    <div class="container">
+            
+        <h1>{{ pageTitle }}</h1>
+
+        <div class="flex-container">
+            <app-show-list-item 
+                *ngFor="let show of shows" 
+                [show]="show">
+            </app-show-list-item>
+        </div>
+
+    </div>
+</div>
