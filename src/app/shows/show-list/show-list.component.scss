@@ -14,4 +14,42 @@
         margin: 0px auto;
         padding: 50px 0px 20px;
     }
+
+    .pagination {
+
+        width: 300px;
+        text-align: center;
+        margin: 0 auto;
+        background: #16a085;
+        border-radius: 25px;
+        border: 1px solid #ffffff;
+
+        ul.page-numbers {
+
+            li {
+                display: inline-block;
+                padding: 5px;
+                width: 55px;
+                color: #ffffff;
+                font-weight: bold;
+                position: relative;
+            }
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            li:not(:last-child)::after {
+                border-right: 2px solid #1e836f;
+                position: absolute;
+                right: 0;
+                z-index: 99999;
+                width: 5px;
+                content: "";
+                top: 0;
+                bottom: 0;
+                transform: skew(160deg);
+            }
+        }
+    }
 }
