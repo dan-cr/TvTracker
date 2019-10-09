@@ -23,7 +23,7 @@ export class TmdbApiService {
 	 * @returns Observable
 	 */
   	getTopRatedShows(page:number = 1): Observable<any> {
-		return this.http.get(`${this.apiUrl}/tv/top_rated?api_key=${this.apiKey}&page=${page}&language=${this.language}`);
+		return this.http.get(`${this.apiUrl}/tv/popular?api_key=${this.apiKey}&page=${page}&language=${this.language}`);
   	}
 
   	/**

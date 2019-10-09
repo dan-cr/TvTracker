@@ -2,6 +2,13 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Show } from '../../core/models/show';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
+enum ColorRating {
+  HIGH = '#53A593',
+  AVERAGE = '#E66A22',
+  POOR = '#BB2424',
+  DEFAULT = '#53a593'
+}
+
 @Component({
   selector: 'app-show-list-item',
   templateUrl: './show-list-item.component.html',
@@ -15,13 +22,13 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 
       // fade in when created. this could also be written as transition('void => *')
       transition(':enter', [
-        style({ opacity: 0, transform:'translateY(-100px)' }),
-        animate(300)
+        style({ opacity: 0, transform:'translateY(-25px)' }),
+        animate(500)
       ]),
 
       // fade out when destroyed. this could also be written as transition('void => *')
       transition(':leave',
-        animate(300, style({ opacity: 0, transform:'translateY(0px)'})))
+        animate(500, style({ opacity: 0, transform:'translateY(0px)'})))
     ])
   ]
 })
@@ -39,18 +46,18 @@ export class ShowListItemComponent implements OnInit {
   * Returns a colour that resembles the shows rating
   */
   getRatingColor() {
-    let rating = this.show.vote_average,
-        bgColor = '#000000'; // Default
+    const rating = this.show.vote_average;
+    let bgColor = ColorRating.DEFAULT;
 
     switch(true) {
       case (rating > 6.5 && rating <= 10):
-        bgColor = '#53a953'; // Green
+        bgColor = ColorRating.HIGH;
         break;
       case (rating > 5 && rating <= 6.5):
-        bgColor = '#e66a22'; // Amber
+        bgColor = ColorRating.AVERAGE;
         break;
       case (rating <= 5):
-        bgColor = '#bb2424'; // Red
+        bgColor = ColorRating.POOR;
         break;
     }
 

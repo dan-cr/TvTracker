@@ -1,20 +1,22 @@
 <div id="show-list">
-    <div class="container">
-            
-        <h1>{{ pageTitle }}</h1>
-
-        <div class="flex-container">
-            <app-show-list-item 
-                *ngFor="let show of shows" 
-                [show]="show">
-            </app-show-list-item>
+        <div class="container">
+                
+            <h1>{{ pageTitle }}</h1>
+    
+            <div class="flex-container">
+                <app-show-list-item 
+                    *ngFor="let show of shows" 
+                    [show]="show">
+                </app-show-list-item>
+            </div>
+    
+            <div class="pagination">
+                <ul class="page-numbers">
+                    <li *ngIf="pages && currentPage > 1 && pages.length > 1" (click)="changePage(currentPage - 1)">&lt;</li>
+                    <li *ngFor="let page of pages" [class.active-page]="page == currentPage" (click)="changePage(page)">{{ page }}</li>
+                    <li *ngIf="pages && currentPage < pages[pages.length-1]" (click)="changePage(currentPage + 1)">&gt;</li>
+                </ul>
+            </div>
+    
         </div>
-
-        <div class="pagination">
-            <ul class="page-numbers">
-                <li *ngFor="let page of pages" (click)="changePage(page)">{{ page }}</li>
-            </ul>
-        </div>
-
     </div>
-</div>

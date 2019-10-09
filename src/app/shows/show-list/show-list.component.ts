@@ -13,7 +13,7 @@ export class ShowListComponent implements OnInit {
   shows: Array<any> = [];
   genres: Array<any> = [];
 
-  pageNumber: number = 1;
+  currentPage: number = 1;
   pages: Array<number>;
 
   constructor(
@@ -31,7 +31,7 @@ export class ShowListComponent implements OnInit {
 					this.genres = data.genres;
 					this.genres.forEach(genre => genreLookup.set(genre.id, genre));
 					this.shows = res.results;
-					this.pages = this.paginate(this.pageNumber, res.total_results, 5);
+					this.pages = this.paginate(this.currentPage, res.total_pages, 5);
 					this.shows.forEach(show => {
 						show.genre_names = show.genre_ids
 							.filter(id => genreLookup.has(id))
@@ -47,20 +47,20 @@ export class ShowListComponent implements OnInit {
   }
 
   // Calculate pages from current page, total cut off and return an array of page numbers
-  paginate(currPage, totalPages, cutOff) {
+  paginate(currPage, totalPages, range) {
 	let start, end;
-	const lower = Math.floor(cutOff / 2);
-	const upper = Math.ceil(cutOff / 2);
+	const lower = Math.floor(range / 2);
+	const upper = Math.ceil(range / 2);
 	const pages = [];
 
-	if (totalPages < cutOff) {
+	if (totalPages < range) {
 		start = 1;
 		end = totalPages;
 	} else if (currPage >= 1 && currPage <= upper) {
 		start = 1;
-		end = cutOff;
+		end = range;
 	}  else if ((currPage + lower) >= totalPages) {
-		start = totalPages - cutOff;
+		start = totalPages - range;
 		end = totalPages;
 	} else {
 		start = (currPage - upper);

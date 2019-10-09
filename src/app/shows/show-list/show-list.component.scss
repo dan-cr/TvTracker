@@ -16,10 +16,9 @@
     }
 
     .pagination {
-
-        width: 300px;
         text-align: center;
         margin: 0 auto;
+        max-width: 330px;
         background: #16a085;
         border-radius: 25px;
         border: 1px solid #ffffff;
@@ -28,11 +27,14 @@
 
             li {
                 display: inline-block;
-                padding: 5px;
-                width: 55px;
+                padding: 8px 16px;
                 color: #ffffff;
                 font-weight: bold;
                 position: relative;
+
+                &.active-page, &:hover {
+                    background: #12715f;
+                }
             }
 
             &:hover {
@@ -40,15 +42,14 @@
             }
 
             li:not(:last-child)::after {
-                border-right: 2px solid #1e836f;
+                content: "";
+                border-right: 1px solid #FFFFFF;
                 position: absolute;
                 right: 0;
                 z-index: 99999;
                 width: 5px;
-                content: "";
                 top: 0;
                 bottom: 0;
-                transform: skew(160deg);
             }
         }
     }
