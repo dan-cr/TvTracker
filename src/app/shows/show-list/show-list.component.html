@@ -12,9 +12,20 @@
     
             <div class="pagination">
                 <ul class="page-numbers">
-                    <li *ngIf="pages && currentPage > 1 && pages.length > 1" (click)="changePage(currentPage - 1)">&lt;</li>
-                    <li *ngFor="let page of pages" [class.active-page]="page == currentPage" (click)="changePage(page)">{{ page }}</li>
-                    <li *ngIf="pages && currentPage < pages[pages.length-1]" (click)="changePage(currentPage + 1)">&gt;</li>
+                    <!-- First and previous page selectors -->
+                    <ng-template [ngIf]="pages && currentPage > 1 && pages.length > 1">
+                            <li (click)="getShows(1)">&lt;&lt;</li>
+                            <li (click)="getShows(currentPage - 1)">&lt;</li>
+                    </ng-template>
+
+                    <!-- Page Numbers -->
+                    <li *ngFor="let page of pages" [class.active-page]="page == currentPage" (click)="getShows(page)">{{ page }}</li>
+
+                    <!-- Next and last page selectors -->
+                    <ng-template [ngIf]="pages && currentPage < totalPages">
+                            <li (click)="getShows(currentPage + 1)">&gt;</li>
+                            <li (click)="getShows(totalPages)">&gt;&gt;</li>
+                    </ng-template>
                 </ul>
             </div>
     

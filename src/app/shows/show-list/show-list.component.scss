@@ -16,20 +16,20 @@
     }
 
     .pagination {
-        text-align: center;
-        margin: 0 auto;
-        max-width: 330px;
-        background: #16a085;
-        border-radius: 25px;
-        border: 1px solid #ffffff;
+        display: flex;
+        justify-content: center;
 
         ul.page-numbers {
+
+            text-align: center;
+            background: #16a085;
+            border: 1px solid #ffffff;
 
             li {
                 display: inline-block;
                 padding: 8px 16px;
+                user-select: none;
                 color: #ffffff;
-                font-weight: bold;
                 position: relative;
 
                 &.active-page, &:hover {
