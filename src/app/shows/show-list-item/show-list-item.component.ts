@@ -50,19 +50,17 @@ export class ShowListItemComponent implements OnInit {
     let bgColor = ColorRating.DEFAULT;
 
     switch(true) {
-      case (rating > 6.5 && rating <= 10):
+      case (rating > 6 && rating <= 10):
         bgColor = ColorRating.HIGH;
         break;
-      case (rating > 5 && rating <= 6.5):
+      case (rating > 3 && rating <= 6):
         bgColor = ColorRating.AVERAGE;
         break;
-      case (rating <= 5):
+      case (rating <= 3):
         bgColor = ColorRating.POOR;
         break;
     }
-
     return bgColor;
-
   }
 
 }

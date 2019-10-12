@@ -1,7 +1,7 @@
 <div class="flex-item" [@fadeAnimation]="in">
     <a routerLink="/show/{{show.id}}">
     <div class="show-poster">
-        <img [src]="'https://image.tmdb.org/t/p/w185_and_h278_bestv2' + show.poster_path">
+        <img [src]="'https://image.tmdb.org/t/p/w185_and_h278_bestv2' + show.poster_path" onError="this.src='../../../assets/img/fallback-img.png';">
     </div>
     <div class="show-details">
         <div [style.background-color]="getRatingColor()" class="show-rating">{{ show.vote_average }}</div>
