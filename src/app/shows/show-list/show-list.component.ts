@@ -26,12 +26,12 @@ export class ShowListComponent implements OnInit {
 		this.getShows(1);
   }
 
-
   /**
    * Get show results by page number
    * @param {} page
    */
   public getShows(page) {
+	this.scrollToTop();
 	this.tmdb.getTopRatedShows(page)
 		.pipe(
 			mergeMap(shows => {
@@ -86,6 +86,20 @@ export class ShowListComponent implements OnInit {
 	}
 
 	return pages;
+  }
+
+  /**
+   * Scroll smoothly to top of page
+   */
+  scrollToTop() {
+	let scrollToTop = window.setInterval(() => {
+		let pos = window.pageYOffset;
+		if (pos > 0) {
+			window.scrollTo(0, pos - 20); // how far to scroll on each step
+		} else {
+			window.clearInterval(scrollToTop);
+		}
+	}, 10);
   }
 
 }
