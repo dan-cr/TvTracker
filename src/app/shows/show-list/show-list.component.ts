@@ -23,7 +23,7 @@ export class ShowListComponent implements OnInit {
   ) {}
 
   public ngOnInit() {
-		this.getShows(1);
+		this.getShows(this.currentPage);
   }
 
   /**
@@ -31,7 +31,6 @@ export class ShowListComponent implements OnInit {
    * @param {} page
    */
   public getShows(page) {
-	this.scrollToTop();
 	this.tmdb.getTopRatedShows(page)
 		.pipe(
 			mergeMap(shows => {
@@ -42,6 +41,7 @@ export class ShowListComponent implements OnInit {
 			})
 		).subscribe(gens => {
 			// Genre Map lookup table
+			this.scrollToTop();
 			const genreLookup = new Map();
 			this.genres = gens.genres;
 			this.genres.forEach(genre => genreLookup.set(genre.id, genre));
@@ -99,7 +99,7 @@ export class ShowListComponent implements OnInit {
 		} else {
 			window.clearInterval(scrollToTop);
 		}
-	}, 10);
+	}, 5);
   }
 
 }

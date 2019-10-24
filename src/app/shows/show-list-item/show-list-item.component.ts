@@ -23,12 +23,12 @@ enum ColorRating {
       // fade in when created. this could also be written as transition('void => *')
       transition(':enter', [
         style({ opacity: 0, transform:'translateY(-25px)' }),
-        animate(500)
+        animate(750)
       ]),
 
       // fade out when destroyed. this could also be written as transition('void => *')
       transition(':leave',
-        animate(500, style({ opacity: 0, transform:'translateY(0px)'})))
+        animate(750, style({ opacity: 0, transform:'translateY(0px)'})))
     ])
   ]
 })
@@ -36,10 +36,13 @@ enum ColorRating {
 export class ShowListItemComponent implements OnInit {
 
   @Input() show: Show;
+  releaseDate: string;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
+      this.releaseDate = this.show.first_air_date.substring(0, 4);
   }
 
   /*

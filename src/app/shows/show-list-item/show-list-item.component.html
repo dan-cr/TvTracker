@@ -6,7 +6,10 @@
     <div class="show-details">
         <div [style.background-color]="getRatingColor()" class="show-rating">{{ show.vote_average }}</div>
         <div class="show-title">{{ show.name }}</div>
-        <div class="show-genres">{{ show.genre_names }}</div>
+        <div class="show-info">
+            <span class="show-genres">{{ show.genre_names }}</span>
+            <span class="show-date">{{ releaseDate }}</span>
+        </div>
     </div>
     </a>
 </div>
