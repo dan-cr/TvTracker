@@ -9,11 +9,16 @@ import { mergeMap } from 'rxjs/operators';
 })
 export class ShowListComponent implements OnInit {
 
+  /* Page State */
   pageTitle: string = 'Tv Shows';
+  tvCat: string = 'popular';
 
+  /* Show Data */
+  tvCategoryOptions: any;
   shows: Array<any> = [];
   genres: Array<any> = [];
 
+  /* Pagination */
   currentPage: number = 1;
   totalPages: number = 1;
   pages: Array<number>;
@@ -22,16 +27,30 @@ export class ShowListComponent implements OnInit {
     private tmdb: TmdbApiService
   ) {}
 
+  getvalue(e) {
+	let selected = e.target.dataset.tvcatattr;
+	if (selected !== this.tvCat) {
+		this.currentPage = 1;
+		this.tvCat = selected;
+	}
+	this.getShows(this.currentPage, this.tvCat);
+  }
   public ngOnInit() {
-		this.getShows(this.currentPage);
+		this.tvCategoryOptions = { 
+			popular: 'Popular', 
+			top_rated: 'Highest Rated', 
+			airing_today: 'Airing Today', 
+			on_the_air: 'Currently Airing' 
+		};
+		this.getShows(this.currentPage, this.tvCat);
   }
 
   /**
    * Get show results by page number
    * @param {} page
    */
-  public getShows(page) {
-	this.tmdb.getTopRatedShows(page)
+  public getShows(page, category) {
+	this.tmdb.getShowByCategory(page, category)
 		.pipe(
 			mergeMap(shows => {
 				this.shows = shows.results;
@@ -52,6 +71,7 @@ export class ShowListComponent implements OnInit {
 					.map(id => genreLookup.get(id).name)
 					.join(', ');
 			});
+			this.shows = this.shuffleArray(this.shows);
 		});		
   }
 
@@ -100,6 +120,26 @@ export class ShowListComponent implements OnInit {
 			window.clearInterval(scrollToTop);
 		}
 	}, 5);
+  }
+
+  /**
+   * Scroll smoothly to top of page
+   */
+  shuffleArray(arr) {
+	let clone = [...arr],
+		current = clone.length,
+		random,
+		temp;
+
+	while (current !== 0) {
+		current--;
+		random = Math.floor(Math.random() * (current + 1));
+		temp = clone[current];
+		clone[current] = clone[random];
+		clone[random] = temp;
+	}
+	
+	return clone;
   }
 
 }
