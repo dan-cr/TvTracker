@@ -111,7 +111,7 @@ export class ShowListComponent implements OnInit {
   /**
    * Scroll smoothly to top of page
    */
-  scrollToTop() {
+  public scrollToTop() {
 	let scrollToTop = window.setInterval(() => {
 		let pos = window.pageYOffset;
 		if (pos > 0) {
@@ -123,9 +123,9 @@ export class ShowListComponent implements OnInit {
   }
 
   /**
-   * Scroll smoothly to top of page
+   * Shuffle array using Knuths Fisher-Yates Shuffle
    */
-  shuffleArray(arr) {
+  public shuffleArray(arr) {
 	let clone = [...arr],
 		current = clone.length,
 		random,
@@ -140,6 +140,13 @@ export class ShowListComponent implements OnInit {
 	}
 	
 	return clone;
+  }
+
+   /**
+   * Comparator function used for defaulting keyvalue pipe sort order
+   */
+  public originalOrder = (a:any, b:any): number => {
+	return 0;
   }
 
 }
