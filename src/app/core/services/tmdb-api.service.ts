@@ -22,8 +22,8 @@ export class TmdbApiService {
 	 * @param  {number=1} page
 	 * @returns Observable
 	 */
-  	getTopRatedShows(page:number = 1): Observable<any> {
-		return this.http.get(`${this.apiUrl}/tv/popular?api_key=${this.apiKey}&page=${page}&language=${this.language}`);
+  	getShowByCategory(page:number = 1, category:string): Observable<any> {
+		return this.http.get(`${this.apiUrl}/tv/${category}?api_key=${this.apiKey}&page=${page}&language=${this.language}`);
   	}
 
   	/**
