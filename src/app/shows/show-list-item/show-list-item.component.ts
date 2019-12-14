@@ -3,10 +3,10 @@ import { Show } from '../../core/models/show';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
 enum ColorRating {
-  HIGH = '#53A593',
+  HIGH = '#659CD5',
   AVERAGE = '#E66A22',
   POOR = '#BB2424',
-  DEFAULT = '#53a593'
+  DEFAULT = '#659CD5'
 }
 
 @Component({

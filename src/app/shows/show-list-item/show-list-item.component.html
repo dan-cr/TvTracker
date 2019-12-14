@@ -2,6 +2,26 @@
     <a routerLink="/show/{{show.id}}">
     <div class="show-poster">
         <img [src]="'https://image.tmdb.org/t/p/w185_and_h278_bestv2' + show.poster_path" onError="this.src='../../../assets/img/fallback-img.png';">
+        <div class="show-overlay">
+            <div class="description">
+                <strong>Title: </strong>{{show.name}}
+            </div>
+            <div class="description">
+                    <strong>Genres: </strong>{{show.genre_names}}
+            </div>
+            <div class="description">
+                <strong>Country: </strong>{{show.origin_country}}
+            </div>
+            <div class="description">
+                    <strong>Description: </strong>{{show.overview}}
+            </div>            
+            <div class="divider"></div>
+            <div class="fav-button">
+                <span class="fav-button__mask"></span>
+                <span class="fav-button__text">Favourite</span>
+                <span class="fav-button__text fav-button__text--bis">Favourite</span>
+            </div>
+        </div>
     </div>
     <div class="show-details">
         <div [style.background-color]="getRatingColor()" class="show-rating">{{ show.vote_average }}</div>

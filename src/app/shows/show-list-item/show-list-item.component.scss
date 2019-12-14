@@ -1,5 +1,8 @@
+$anim-text-offset: 1em;
+
 :host {
-    width: 25%;
+    width: 19.5%;
+    min-width: 250px;
 
     @media screen and (max-width: 980px) { 
         width: 33.33%;
@@ -29,11 +32,112 @@
 
         .show-poster {
 
+            position: relative;
+
             img {
                 margin: 0 auto;
                 width: 100%;
                 border-radius: 0px;
                 box-shadow: 2px 1px 15px #1a1a1a;
+            }
+
+            .show-overlay {
+                display: none;
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.9);
+
+                .description {
+                    align-self: flex-start;
+                    margin: 5%;
+                    color: #fff;
+                    font-size: 12px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 4; /* number of lines to show */
+
+                    strong {
+                      color: #659CD5;
+                      font-weight: 900;
+                    }
+                }
+
+                .fav-button {
+                    width: 90%;
+                    background: #191c1f;
+                    text-align: center;
+                    margin-top: auto;
+                    user-select: none;
+                    display: inline-block;
+                    border: .1em solid;
+                    position: relative;
+                    cursor: pointer;
+                    overflow: hidden;
+                    opacity: 0.85;
+                    color: #659CD5;
+                    &__text {
+                      display: block;
+                      padding:.35em 1em;
+                      text-transform: uppercase;
+                      font-weight: bold;
+                      &:before {
+                        content: attr(title);
+                      }
+                      &--bis {
+                        display: block;
+                        position: absolute;
+                        top: 0; left:0; right: 0; bottom: 0;
+                        transform: translateX(-1 * 1em);
+                        opacity: 0;
+                      }
+                    }
+                    &__mask {
+                      display: block;
+                      position: absolute;
+                      top: 0; left: 0; right: 0; bottom: 0;
+                      background: #659CD5;
+                      transform: translateX(-100%) rotate(45deg);
+                      transition: all 0.3s;
+                    }  
+                  }
+                  
+                  .fav-button:hover {
+                    opacity: 1;
+                    .fav-button__text {
+                      animation: fx-text .3s ease-out;
+                      &--bis {
+                        animation: fx-text-bis .3s ease-out;
+                      }
+                    }    
+                    .fav-button__mask {
+                      animation: fx-mask .3s ease-out;
+                    }    
+                  }
+                  
+                  .fav-button:active {
+                    opacity: 1;
+                    background: #659CD5;
+                    color: inherit;
+                  }
+
+                .divider {
+                    width: 90%;
+                    margin-top: auto;
+                    border-bottom: 3px groove #303022;
+                }
+            }
+
+            &:hover .show-overlay {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding: 5% 0;
             }
 
         }
@@ -86,4 +190,36 @@
 
     }
     
+}
+
+
+@keyframes fx-mask {
+  0% {
+    transform: translateX(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(45deg);
+  }
+}
+
+@keyframes fx-text {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX($anim-text-offset);
+    opacity: 0;
+  }
+}
+
+@keyframes fx-text-bis {
+  0% {
+    transform: translateX(-1 * $anim-text-offset);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }

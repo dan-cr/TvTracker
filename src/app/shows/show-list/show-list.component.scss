@@ -32,7 +32,7 @@
 
             &:hover, &.active {
                 border-bottom: 1px solid #FFFFFF;
-                background: #16A085;
+                background: #2980B9;
             }
 
             @media screen and (max-width: 768px) {
@@ -69,7 +69,7 @@
                 position: relative;
 
                 &.active-page, &:hover {
-                    background: #16A085;
+                    background: #2980B9;
                 }
             }
 
