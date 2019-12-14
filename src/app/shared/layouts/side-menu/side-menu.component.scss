@@ -11,6 +11,7 @@ aside {
     margin-top: 85px;
     display: flex;
     flex-direction: column;
+    border-right: 1px groove #9c9c9c;
 
 
     @media #{$max-mobile-break} {
@@ -38,7 +39,7 @@ aside {
                 &.active-link,
                 &:hover  {
                     background-color: #222a31;
-                    color: #16a085;
+                    color: #2980B9;
                 }
 
                 @media #{$max-mobile-break} {
@@ -74,7 +75,7 @@ aside {
         font-size: 11px;
         font-weight: bold;
         color: #FFFFFF;
-        background-color: #16a085;
+        background-color: #2980B9;
         text-transform: uppercase;
 
         @media #{$max-mobile-break} {

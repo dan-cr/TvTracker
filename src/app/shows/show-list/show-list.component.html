@@ -4,7 +4,7 @@
             <h1>{{ pageTitle }}</h1>
 
             <div id="categories">
-                <div *ngFor="let cat of tvCategoryOptions | keyvalue: originalOrder" (click)="getvalue($event)" [attr.data-tvcatattr]="cat.key" [class.active]="cat.key === tvCat" class="cat-item">{{cat.value}}</div>
+                <div *ngFor="let cat of tvCategoryOptions | keyvalue: utils.originalOrder" (click)="changeCategory($event)" [attr.data-tvcatattr]="cat.key" [class.active]="cat.key === tvCat" class="cat-item">{{cat.value.title}}</div>
             </div>
     
             <div class="flex-container">
@@ -18,8 +18,8 @@
                 <ul class="page-numbers">
                     <!-- First and previous page selectors -->
                     <ng-template [ngIf]="pages && currentPage > 1 && pages.length > 1">
-                            <li (click)="getShows(1, tvCat)">&lt;&lt;</li>
-                            <li (click)="getShows(currentPage - 1, tvCat)">&lt;</li>
+                        <li (click)="getShows(1, tvCat)">&lt;&lt;</li>
+                        <li (click)="getShows(currentPage - 1, tvCat)">&lt;</li>
                     </ng-template>
 
                     <!-- Page Numbers -->
@@ -27,8 +27,8 @@
 
                     <!-- Next and last page selectors -->
                     <ng-template [ngIf]="pages && currentPage < totalPages">
-                            <li (click)="getShows(currentPage + 1, tvCat)">&gt;</li>
-                            <li (click)="getShows(totalPages, tvCat)">&gt;&gt;</li>
+                        <li (click)="getShows(currentPage + 1, tvCat)">&gt;</li>
+                        <li (click)="getShows(totalPages, tvCat)">&gt;&gt;</li>
                     </ng-template>
                 </ul>
             </div>
