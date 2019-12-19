@@ -1,6 +1,6 @@
 # TvTracker
 
-Just a personal project to learn more about Angular and Node.js which Utilising the TMDB api. 
+Just a personal project to learn more about Angular and Node.js. Project make Utilises the public TMDB api. 
 
 # TODO
 **Lots: :grinning:**
