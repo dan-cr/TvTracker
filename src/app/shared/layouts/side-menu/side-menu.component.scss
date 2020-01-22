@@ -1,5 +1,5 @@
 /* VARIABLES */
-$max-mobile-break: "only screen and (max-width: 600px)";
+$max-mobile-break: "only screen and (max-width: 768px)";
 $ui-theme-color: #191c1f;
 
 aside {
@@ -15,7 +15,7 @@ aside {
 
 
     @media #{$max-mobile-break} {
-        width: 50px;
+        width: 75px;
     }
 
     ul.menu {
