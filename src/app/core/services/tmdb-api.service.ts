@@ -9,7 +9,7 @@ import { environment } from '../../../environments/environment';
 export class TmdbApiService {
 
 	// TMDB Api Defaults
-	private apiUrl = 'https://api.themoviedb.org/3';
+	private apiUrl = environment.apiUrl;
 	private apiKey = environment.apiKey;
 	private language = 'en-US';
   
@@ -46,6 +46,5 @@ export class TmdbApiService {
 	getShowsByName(page:number = 1, searchTerm:string): Observable<any> {
 		return this.http.get(`${this.apiUrl}/search/tv?api_key=${this.apiKey}&page=${page}&language=en-US&query=${searchTerm}`);
   	}
-
 
 }
