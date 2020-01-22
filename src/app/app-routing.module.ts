@@ -6,6 +6,7 @@ import { ShowComponent } from './shows/show-detail/show.component';
 
 const routes: Routes = [
   {path: 'shows', component: ShowListComponent},
+  {path: 'search/shows/:term', component: ShowListComponent},
   {path: 'show/:id', component: ShowComponent}
 ];
 

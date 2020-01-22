@@ -42,7 +42,9 @@ export class ShowListItemComponent implements OnInit {
   }
 
   ngOnInit() {
-      this.releaseDate = this.show.first_air_date.substring(0, 4);
+      if (this.show.first_air_date) {
+        this.releaseDate = this.show.first_air_date.substring(0, 4);
+      }
   }
 
   /*

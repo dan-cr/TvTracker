@@ -7,9 +7,9 @@
     </div>
     
     <div class="search">
-        <span class="fa fa-search"></span>
-        <form class="search-form">
-            <input class="search-input" placeholder="Search Tv Shows...">
+        <form #searchForm="ngForm" (ngSubmit)="searchShows(searchForm)" class="search-form">
+            <input class="search-input" name="searchTerm" placeholder="Search Tv Shows..." ngModel>
+            <span (click)="searchShows(searchForm)" class="fa fa-search"></span>
         </form>
     </div>
 </header>
