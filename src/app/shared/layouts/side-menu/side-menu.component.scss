@@ -39,7 +39,7 @@ aside {
                 &.active-link,
                 &:hover  {
                     background-color: #222a31;
-                    color: #2980B9;
+                    color: #4a69bd;
                 }
 
                 @media #{$max-mobile-break} {
@@ -75,7 +75,7 @@ aside {
         font-size: 11px;
         font-weight: bold;
         color: #FFFFFF;
-        background-color: #2980B9;
+        background-color: #4a69bd;
         text-transform: uppercase;
 
         @media #{$max-mobile-break} {
