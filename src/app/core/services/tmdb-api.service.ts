@@ -44,7 +44,16 @@ export class TmdbApiService {
 	 * @returns Observable
 	 */
 	getShowsByName(page:number = 1, searchTerm:string): Observable<any> {
-		return this.http.get(`${this.apiUrl}/search/tv?api_key=${this.apiKey}&page=${page}&language=en-US&query=${searchTerm}`);
-  	}
+		return this.http.get(`${this.apiUrl}/search/tv?api_key=${this.apiKey}&page=${page}&language=${this.language}&query=${searchTerm}`);
+	}
+
+	/**
+	 * Retrieves a show by its ID
+	 * @param  {number=1} id
+	 * @returns Observable
+	 */
+	getShowById(id) {
+		return this.http.get(`${this.apiUrl}/tv/${id}?api_key=${this.apiKey}&language=${this.language}`);
+	}
 
 }

@@ -11,6 +11,8 @@ import { ShowComponent } from './shows/show-detail/show.component';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { TmdbApiService } from './core/services/tmdb-api.service';
 import { ShowListItemComponent } from './shows/show-list-item/show-list-item.component';
+import { RatingPipe } from './core/pipes/rating.pipe';
+import { PluralPipe } from './core/pipes/plural.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { ShowListItemComponent } from './shows/show-list-item/show-list-item.com
     SideMenuComponent,
     ShowListComponent,
     ShowComponent,
-    ShowListItemComponent
+    ShowListItemComponent,
+    RatingPipe,
+    PluralPipe
   ],
   imports: [
     BrowserModule,

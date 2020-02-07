@@ -1,0 +1,97 @@
+$max-height: calc(100vh - 85px);
+$border-style: 1px solid rgba(255, 255, 255, 0.2);
+$vertical-padding: 20px 0px;
+
+#backdrop {
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    min-height: $max-height;
+
+    #backdrop-overlay {
+        background: rgba(0, 0, 0, 0.85);
+        width: 100%;
+        padding: 50px;
+        min-height: $max-height;
+
+        #show-wrapper {
+            color: #E5E5E5;
+
+            #show-header {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: $vertical-padding;
+                border-bottom: $border-style;
+
+                .show-title {
+
+                    h1 {
+                        font-size: 48px;
+                    }
+
+                    span {
+                        display: block;
+                    }
+
+                }
+
+                .show-rating {
+                    font-size: 18px;
+                    align-self: flex-end;
+                }
+
+            }
+
+            #show-info {
+                padding: $vertical-padding;
+                border-bottom: $border-style;
+                
+                #show-overview {
+                    font-size: 14px;
+                }
+            }
+
+            #show-meta {
+                padding: $vertical-padding;
+                border-bottom: $border-style;
+
+                span {
+                    display: block;
+                }
+            }
+
+            #show-seasons-section {
+
+                padding: $vertical-padding;
+
+                h2 {
+                    margin: 0 0 10px;
+                }
+
+                #show-seasons {
+
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    justify-content: start;
+                    
+                    .season {
+                        padding: 5px 10px;
+                        text-align: center;
+
+                        img {
+                            min-width: 150px;
+                        }
+
+                        .season-title {
+                            font-size: 14px;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}

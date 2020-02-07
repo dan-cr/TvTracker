@@ -1,1 +1,43 @@
-{{id}}
+<div *ngIf="showData" 
+     [ngStyle]="{backgroundImage: 'url(https://image.tmdb.org/t/p/original' + showData.backdrop_path + ')'}" 
+     id="backdrop">
+
+     <div id="backdrop-overlay">
+        <div id="show-wrapper">
+
+			<div id="show-header">
+				<div class="show-title">
+					<h1>{{showData.name}}</h1>
+					<span id="season-count">{{ showData.number_of_seasons | plural: 'season' }}</span>
+				</div>
+				<div class="show-rating">
+					<span id="rating">{{ showData.vote_average | rating }}</span>
+				</div>
+			</div>
+
+			<div id="show-info">
+				<div id="show-overview"><p>{{ showData.overview }}</p></div>
+			</div>
+
+			<div id="show-meta">
+				<span id="genres"><i class="fa fa-tags" aria-hidden="true"></i> {{ showGenres }}</span>
+				<span id="runtime"><i class="fa fa-clock-o" aria-hidden="true"></i> {{ showRuntime }}</span>
+				<span id="runtime"><i class="fa fa-film" aria-hidden="true"></i> {{ showData.status }}</span>
+			</div>
+
+			<div id="show-seasons-section">
+				<h2>Seasons</h2>
+				<div id="show-seasons">
+					<div class="season" *ngFor="let season of showData.seasons">
+						<div *ngIf="season.poster_path">
+							<img [src]="'https://image.tmdb.org/t/p/w154' + season.poster_path">
+							<span class="season-title">{{ season.name }}</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+        </div>
+	 </div>
+	 
+</div>
