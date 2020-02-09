@@ -6,9 +6,13 @@
         <div id="show-wrapper">
 
 			<div id="show-header">
+				<div id="back-button" (click)="navigateBack()">
+					<span><i class="fa fa-long-arrow-left" aria-hidden="true"></i> Back to show listings</span>
+				</div>
 				<div class="show-title">
 					<h1>{{showData.name}}</h1>
 					<span id="season-count">{{ showData.number_of_seasons | plural: 'season' }}</span>
+					<span id="season-count">Next episode airs: {{ showDaysTillNextEp || 'Unknown.' }}</span>
 				</div>
 				<div class="show-rating">
 					<span id="rating">{{ showData.vote_average | rating }}</span>
@@ -30,8 +34,10 @@
 				<div id="show-seasons">
 					<div class="season" *ngFor="let season of showData.seasons">
 						<div *ngIf="season.poster_path">
-							<img [src]="'https://image.tmdb.org/t/p/w154' + season.poster_path">
-							<span class="season-title">{{ season.name }}</span>
+							<a routerLink="/show/{{ showId }}/season/{{ season.season_number }}/">
+								<img [src]="'https://image.tmdb.org/t/p/w154' + season.poster_path">
+								<span class="season-title">{{ season.name }}</span>
+							</a>
 						</div>
 					</div>
 				</div>
