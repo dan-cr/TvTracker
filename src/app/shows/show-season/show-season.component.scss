@@ -1,0 +1,54 @@
+#season-wrapper {
+    padding: 75px 25px;
+    position: relative;
+}
+
+#season-header {
+
+    #back-button {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-size: 14px;
+        color: #FFFFFF;
+        background: #5C6884;
+        border-radius: 2px;
+        cursor: pointer;
+        padding: 5px 15px;
+    }
+
+    h1 {
+        color: #FFFFFF;
+        font-size: 24px;
+        text-align: center;
+        text-indent: 25px;
+        font-weight: normal;
+    }
+}
+
+.season-episode-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .season-episode {
+        margin: 10px;
+        color: #FFFFFF;
+        width: 31%;
+        min-width: 225px;
+
+        .episode_name {
+            padding: 5px 0px;
+            height: 25px;
+            font-size: 14px;
+            overflow: hidden;
+        }
+
+        .episode_airdate {
+            font-size: 12px;
+            color: #999999;
+            padding: 5px 0px 10px;
+        }
+    }
+}

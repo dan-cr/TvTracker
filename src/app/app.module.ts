@@ -13,6 +13,9 @@ import { TmdbApiService } from './core/services/tmdb-api.service';
 import { ShowListItemComponent } from './shows/show-list-item/show-list-item.component';
 import { RatingPipe } from './core/pipes/rating.pipe';
 import { PluralPipe } from './core/pipes/plural.pipe';
+import { ShowSeasonComponent } from './shows/show-season/show-season.component';
+import { FormatDatePipe } from './core/pipes/format-date.pipe';
+import { DataService } from './core/services/data.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,9 @@ import { PluralPipe } from './core/pipes/plural.pipe';
     ShowComponent,
     ShowListItemComponent,
     RatingPipe,
-    PluralPipe
+    PluralPipe,
+    ShowSeasonComponent,
+    FormatDatePipe
   ],
   imports: [
     BrowserModule,
@@ -33,7 +38,8 @@ import { PluralPipe } from './core/pipes/plural.pipe';
     BrowserAnimationsModule
   ],
   providers: [
-    TmdbApiService
+    TmdbApiService,
+    DataService
   ],
   bootstrap: [AppComponent]
 })
