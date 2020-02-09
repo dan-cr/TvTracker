@@ -48,4 +48,30 @@ export class UtilsService {
     }, 5);
   }
 
+  // Calculate how many days there are between two dates
+  public daysUntilDate(start: Date, end: Date) {
+
+    // Reset hours for both dates to midnight to ensure they do not exceed each other if they are on the same day
+    start.setHours(0,0,0,0);
+    end.setHours(0,0,0,0);
+
+    // Get timestamp foreach date
+    let sTime = start.getTime();
+    let eTime = end.getTime();
+
+    // Ensure start date is the smaller and most recent date
+    if (sTime > eTime) {
+      let temp = sTime;
+      sTime = eTime;
+      eTime = temp;
+    }
+
+    if (sTime == eTime) {
+      return '0';
+    } else {
+      return Math.floor((eTime - sTime) / 1000 / 60 / 60 / 24).toString();
+    }
+      
+  }
+
 }
