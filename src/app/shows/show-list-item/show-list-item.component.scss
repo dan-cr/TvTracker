@@ -62,7 +62,7 @@ $anim-text-offset: 1em;
                     -webkit-line-clamp: 4; /* number of lines to show */
 
                     strong {
-                      color: #659CD5;
+                      color: #606C88;
                       font-weight: 900;
                     }
                 }
@@ -79,7 +79,7 @@ $anim-text-offset: 1em;
                     cursor: pointer;
                     overflow: hidden;
                     opacity: 0.85;
-                    color: #659CD5;
+                    color: #606C88;
                     &__text {
                       display: block;
                       padding:.35em 1em;
@@ -100,7 +100,7 @@ $anim-text-offset: 1em;
                       display: block;
                       position: absolute;
                       top: 0; left: 0; right: 0; bottom: 0;
-                      background: #659CD5;
+                      background: #606C88;
                       transform: translateX(-100%) rotate(45deg);
                       transition: all 0.3s;
                     }  
@@ -121,7 +121,7 @@ $anim-text-offset: 1em;
                   
                   .fav-button:active {
                     opacity: 1;
-                    background: #659CD5;
+                    background: #606C88;
                     color: inherit;
                   }
 

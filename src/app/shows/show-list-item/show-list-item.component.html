@@ -1,7 +1,7 @@
 <div class="flex-item" [@fadeAnimation]>
     <a routerLink="/show/{{show.id}}">
     <div class="show-poster">
-        <img [src]="'https://image.tmdb.org/t/p/w185_and_h278_bestv2' + show.poster_path" onError="this.src='../../../assets/img/fallback-img.png';">
+        <img [src]="'https://image.tmdb.org/t/p/w185_and_h278_bestv2' + show.poster_path" onError="this.src='assets/img/fallback-img.png'">
         <div class="show-overlay">
             <div class="description">
                 <strong>Title: </strong>{{show.name}}

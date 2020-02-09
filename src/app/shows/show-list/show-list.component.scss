@@ -32,7 +32,8 @@
 
             &:hover, &.active {
                 border-bottom: 1px solid #FFFFFF;
-                background: #4a69bd;
+                background: -webkit-linear-gradient(to right, #3f4c6b, #606c88);
+                background: linear-gradient(to right, #3f4c6b, #606c88);
             }
 
             @media screen and (max-width: 768px) {
@@ -69,7 +70,7 @@
                 position: relative;
 
                 &.active-page, &:hover {
-                    background: #4a69bd;
+                    background: #3f4c6b;
                 }
             }
 
