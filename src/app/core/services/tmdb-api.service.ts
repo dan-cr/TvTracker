@@ -55,5 +55,14 @@ export class TmdbApiService {
 	getShowById(id) {
 		return this.http.get(`${this.apiUrl}/tv/${id}?api_key=${this.apiKey}&language=${this.language}`);
 	}
+	
+	/**
+	 * Retrieves a shows season by number and show id
+	 * @param  {number=1} id
+	 * @returns Observable
+	 */
+	getShowSeason(id, season) {
+		return this.http.get(`${this.apiUrl}/tv/${id}/season/${season}?api_key=${this.apiKey}&language=${this.language}`);
+	}
 
 }
